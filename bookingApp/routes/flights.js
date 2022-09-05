@@ -1,10 +1,11 @@
 const express = require("express")
-const path = require("path")
+
+const Flights = require("../controllers/flights")
 
 const router = express.Router()
 
-router.get("/flights", (req,res)=>{
-    return res.sendFile(path.join(__dirname, "..", "views", "index.html"))
-})
+router.get("/flights", Flights.getHome)
+
+router.get("/search", Flights.search)
 
 module.exports = router
