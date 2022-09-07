@@ -12,8 +12,16 @@
     
     <script>
         
+        // fetch(/api/flights)
+
+        // .then(){
+
+        // } .catch(error) {
+
+        // }
+
         async function getData(){
-            const response = await fetch("/api/flights")
+            const response = await fetch("/api/flights") //GET
             const data = await response.json()
 
             console.log(data)
