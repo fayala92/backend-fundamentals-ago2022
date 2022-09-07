@@ -2,6 +2,7 @@ const express = require("express")
 // Destructuring
 const { port } = require("./config")
 const flights = require("./routes/flights")
+const auth = require("./routes/auth")
 
 const app = express()
 
@@ -15,9 +16,15 @@ app.use(express.urlencoded({
 //raw/json
 app.use(express.json())
 
-//Routes
+//static-files
+// app.use('/static',express.static(__dirname+'/static'))
+app.use('/static',express.static('static'))
+
+
+//ROUTES
 
 app.use(flights)
+app.use(auth)
 
 // index, root, home
 app.get("/",(req, res)=>{
